@@ -1,0 +1,10 @@
+
+The STL files that will get 3D printed are taken from an open source project called Inmoov. It is a project that aims to build the whole human body 3D printed but we chose the Right Hand of the human body to control via brain.
+
+The following page has all the info of assembling the 3D printed hand as well as the STL files if one wants to print the Left Hand of the body. 
+https://inmoov.fr/hand-and-forarm/
+
+For Video instructions refer to the build made by Xander DIY
+https://www.youtube.com/watch?v=4t1daCFQ1OE&t=2861s
+
+We didn't intend to plagiarize anything and give our thanks to Gael Langevin for the making the Inmoov project. The STL files attached are for our reference as we used only those files for building our hand.
