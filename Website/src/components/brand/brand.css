@@ -1,0 +1,23 @@
+.branding{
+    flex: 1;
+    /* max-width: 150px;
+    min-width: 120px;
+    margin: 1rem; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.branding div{
+ 
+
+    flex: 1;
+    max-width: 150px;
+    min-width: 120px;
+    margin: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

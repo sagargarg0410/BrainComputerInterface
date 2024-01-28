@@ -1,0 +1,86 @@
+.cta_box{
+    background: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
+border: 1px solid #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10.7236px;
+
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+box-sizing: border-box;
+padding: 3.2rem;
+border-radius: 10px;
+margin: 0 8rem;
+}
+
+.someHeading h1{
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 45px;
+    color: #000000;
+}
+.someHeading h6{
+        
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 30px;
+color: #0E0E0E;
+
+}
+
+.button1{
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 2rem;
+
+
+}
+.button1 button{
+    background: #000;
+    color: #fff;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 30px;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+
+    border: none;
+    outline: none;
+    cursor: pointer;
+    min-width: 150px;
+
+}
+
+@media screen and (max-width: 650px) {
+    .cta_box {
+        flex-direction: column;
+    }
+
+    .button1 {
+        margin: 2rem 0 0;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .cta_box {
+        flex-direction: column;
+        margin: 4rem 2rem;
+    }
+
+    .someHeading h1 {
+        font-size: 18px;
+        line-height: 32px;
+    }
+
+    .button1 button {
+        font-size: 14px;
+        line-height: 28px;
+    }
+}
