@@ -9,7 +9,6 @@
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-
     margin-left: 5rem;
 }
 .gpt__header-content h1 {
@@ -31,20 +30,18 @@
 .gpt__header-content__input {
     width: 100%;
     margin: 2rem 0 1rem;
-
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
-
 .gpt__header-content__input p {
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 20px;
     line-height: 28px;
     color: rgb(173, 204, 217);
-
     margin-top: 1.5rem;
 }
+
 
 .gpt__header-content__people{
     display: flex;
@@ -78,7 +75,7 @@ color: #FFFFFF;
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    height: 590px;
 }
 .gpt__header-image img {
     width: 60%;
