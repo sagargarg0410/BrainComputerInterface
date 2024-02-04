@@ -2,7 +2,11 @@ import React from 'react'
 import './header.css'
 // import people from '../../assets/people.png'
 import prosthetic_arm1 from '../../assets/prosthetic_arm1.webp'
-
+import manbci from '../../assets/manbci.jpg'
+import fashion from '../../assets/fashion.jpg'
+import couple from '../../assets/couple.jpg'
+import emotive from '../../assets/emotive.jpg'
+// import manhand from '../../assets/manhand.jpg'
 
 const Header = () => {
   return (
@@ -35,13 +39,19 @@ const Header = () => {
        <p align ="justify">Discover InMoov, the world's first open-source 3D printed life-size robot. Replicable on standard home 3D printers, InMoov serves as a versatile platform for universities, labs, hobbyists, and makers. With its open design, life-size stature, and global community collaboration, InMoov is shaping the future of accessible and collaborative robotics.</p>
        </div>   
       </div>
-    // main div
-
+    <div className="gpt__header-content__people">
+        {/* <img src={people} /> */}
+        {/* <p>1,600 people requested access a visit in last 24 hours</p> */}
+      </div>
    <div className ="gpt_header-content_input">
       <h1 className="gradient__text">Prosthetics(Indian Scenario)</h1>
        <div className="gpt__header-content__input">
-       <p align ="justify">Discover the impactful statistics shaping India's prosthetics landscape. Media often references a figure of 500,000 amputees, sourced from a 2017 World Health Organization (WHO) study. A more conservative estimate of 25,000 prosthetic users, factoring in affordability and limited access, stems from a 2019 report by the O&P Virtual Library. The Indian government's 2018 survey revealed a staggering 9 million individuals with mobility disabilities, underlining the significant demand for prosthetics. Despite strides, challenges like limited awareness persist, requiring collaborative efforts from government, NGOs, and the private sector to enhance affordability, innovation, and prosthetic care across the nation.</p>
-       </div>   
+       <p align ="justify">Discover the impactful statistics shaping India's prosthetics landscape. Media often referenced a figure of 500,000 amputees, sourced from a 2017 World Health Organization (WHO) study. A more conservative estimate of 25,000 prosthetic users, factoring in affordability and limited access, stems from a 2019 report by the O&P Virtual Library. The Indian government's 2018 survey revealed a staggering 9 million individuals with mobility disabilities, underlining the significant demand for prosthetics. Despite strides, challenges like limited awareness persist, requiring collaborative efforts from government, NGOs, and the private sector to enhance affordability, innovation, and prosthetic care across the nation.</p>
+       </div>
+      </div>
+      <div className="gpt__header-content__people">
+        {/* <img src={people} /> */}
+        {/* <p>1,600 people requested access a visit in last 24 hours</p> */}
       </div>
 
       <div className ="gpt_header-content_input">
@@ -51,13 +61,17 @@ const Header = () => {
        </div>   
       </div>
 
-
-      </div> //main div ( text to be added before this)
+      </div> 
      
    <div  className="gpt__header-image">
       <img alt='anshu' src={prosthetic_arm1}  />
       {/* <App/> */}
+      <img className="bci" alt='anshu' src={manbci}  />
+      <img className="bci" alt='anshu' src={fashion}  />
+      <img className="bci" alt='anshu' src={couple}  />
+      <img className="bci" alt='hover' src={emotive}  />
     </div>
+    
       
       
    </div>
