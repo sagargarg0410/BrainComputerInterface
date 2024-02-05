@@ -4,6 +4,7 @@ import { Navbar } from './components';
 import { Header, WhatGPT } from './containers';
 import MiniGames from "./pages/minigame/Minigame";
 import Demo from "./pages/demonstration/demo";
+import Maker from "./pages/Makers/maker";
 import './App.css';
 const App = () => {
   return(
@@ -22,7 +23,7 @@ const App = () => {
         <Route path="/prosthetic" element = {<WhatGPT/>} />
         <Route path="/Games" element={<MiniGames/>}/> 
         <Route path="/demo" element={<Demo/>}/>
-
+        <Route path="/maker" element={<Maker/>}/>
         
        </Routes>
      
