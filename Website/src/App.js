@@ -6,6 +6,7 @@ import MiniGames from "./pages/minigame/Minigame";
 import Demo from "./pages/demonstration/demo";
 import Maker from "./pages/Makers/maker";
 import './App.css';
+import ImageComponent from "./pages/FacialExpression/Face";
 const App = () => {
   return(
     <div className="App">
@@ -22,7 +23,7 @@ const App = () => {
         <Route path="/home" element = {<Header/>} />
         <Route path="/prosthetic" element = {<WhatGPT/>} />
         <Route path="/Games" element={<MiniGames/>}/> 
-        <Route path="/demo" element={<Demo/>}/>
+        <Route path="/ImageComponent" element={<ImageComponent/>}/>
         <Route path="/maker" element={<Maker/>}/>
         
        </Routes>
