@@ -1,24 +1,4 @@
-
-// import React from "react";
-
-
-// const Face=()=>{
-//     const [imageSrc, setImageSrc] = useState('');
-
-//   const handleImageChange = () => {
-//     setImageSrc('new_image_url.jpg');
-//   };
-
-//     return(
-//         <div className="face">
-//              <img src={imageSrc} alt="My Image" />
-//       <button onClick={handleImageChange}>Change Image</button>
-//         </div>
-//     )
-
-// }
-// export default Face;
-
+import Cortex from './Facial_Data_Fetch'
 
 import React, { useState, useEffect } from 'react';
 import smile from '../../assets/smile.jpg'
@@ -26,32 +6,32 @@ import wink from '../../assets/wink.jpg'
 import neutral from '../../assets/neutral.jpg'
 
 
-// import data from 'D:\VS code\DOM\data.json';
-// import smile from '../../assets/smile.jpg'
-
-const ImageComponent = () => {
-//   const [emotion, setEmotion] = useState('');
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const response = await fetch('data');
-//         const emotionData = await response.json();
-//         setEmotion(emotionData);
-//       } catch (error) {
-//         console.error('Error fetching emotion data:', error);
-//       }
-//     };
-
-//     const intervalId = setInterval(fetchData, 2000);
-//     return () => clearInterval(intervalId);
-//   }, []); // The empty dependency array ensures the effect runs only once after the component mounts.
+  const ImageComponent = () => {
 
   // Determine which image to display based on the fetched emotion string
   const getImageSource = () => {
-    const emotion = "neutral";
 
-    switch (emotion) {
+    const socketUrl = 'wss://localhost:6868'
+    let user =
+    {
+      "license": "",
+      "clientId": "97LUk91NH5vW1Wul5dcyWOWfcJ4tDvX28frCx5pC",
+      "clientSecret": "GH0A2vlp52by1zRil1INUP5vg9oLIPFBaCzMuwN1vXdA1qPrYt9ARcNse3kc9ZsRI7SfPUwCBWccB7RcGEngs6fJLhmaV1r7jKxpyqltvWXIxWAyM4LdMj3NOTSRF9nT",
+      "debit": 1
+    }
+
+    let c = new Cortex(user, socketUrl)
+
+    let streams = ['fac']
+
+    //Loop here
+    c.sub(streams)
+
+    const eyes =  c.geteyeAction();
+    //const UFace = c.getuAct();
+    //const LFace = c.getlAct();
+
+    switch ('smile') {
       case 'smile':
         return smile; // Replace with the actual path to your smile image
       case 'blink':
