@@ -14,8 +14,8 @@ const Menu=()=>{
   <p><a href="/Games">Mini Games</a></p>
   {/* <li><link to={"#Games"}>Mini Games</link></li> */}
   {/* <p><a href="#blog">Library</a></p> */}
-  <p><a href="/">Facial Expressions</a></p>
   <p><a href="/Sentient"> Sentient Analysis</a></p>
+  <p><a href="/ImageComponent">Facial Expressions</a></p>
   <p><a href="/Maker">Founders</a></p>
   </>)
 }
