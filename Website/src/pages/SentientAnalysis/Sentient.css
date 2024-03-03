@@ -1,0 +1,53 @@
+body{
+  background: var(--color-bg);
+}
+
+.horizontal-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .label {
+    flex: 6;
+    color: white; 
+    font-size: larger;
+    font-weight: 500;
+    text-align: justify;
+  }
+  
+  .bar {
+    height: 80px;
+    border-radius: 20px;
+  }
+  
+  .emoji {
+    margin-left: 10px;
+    font-size: 80px;
+  }
+  
+  h1{
+    color: beige;
+    text-decoration: wavy;
+    font-family: "Madimi One", sans-serif;
+    text-align: center;
+  }
+  h3{
+    color: rgb(237, 230, 238);
+    text-decoration: wavy;
+    text-shadow: #ea96e6;
+    font-size: large;
+    text-align: center;
+    animation: height;
+    margin-left: 100px;
+    margin-left: 100px;
+    
+  }
+  /* Background styling with glass morphism effect */
+  body {
+    background: radial-gradient(circle,black, black); /* Background gradient */
+    overflow: hidden; /* Prevents scrolling outside viewport */
+    
+  }
+  
+  

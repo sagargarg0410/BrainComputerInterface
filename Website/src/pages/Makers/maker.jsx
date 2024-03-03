@@ -60,7 +60,7 @@ Delhi. He is enthusiastic and motivated learner proficient in MERN Stacks. Dedic
                 </div>
                 <div className="content"> 
                     <p>Jatin is currently pursuing
-her bachelor’s degree in ECE
+his bachelor’s degree in ECE
 from BVCOE, GGSIPU, New
 Delhi. He is a highly motivated and
 confident Undergraduate with a

@@ -5,6 +5,7 @@ import { Header, WhatGPT } from './containers';
 import MiniGames from "./pages/minigame/Minigame";
 import Demo from "./pages/demonstration/demo";
 import Maker from "./pages/Makers/maker";
+import Sentient  from "./pages/SentientAnalysis/Sentient";
 import './App.css';
 const App = () => {
   return(
@@ -18,12 +19,12 @@ const App = () => {
        
        <Routes>
         <Route path="/" element = {<Header/>}/>
-        
         <Route path="/home" element = {<Header/>} />
         <Route path="/prosthetic" element = {<WhatGPT/>} />
         <Route path="/Games" element={<MiniGames/>}/> 
         <Route path="/demo" element={<Demo/>}/>
         <Route path="/maker" element={<Maker/>}/>
+        <Route path="/Sentient" element={<Sentient/>}/>
         
        </Routes>
      
