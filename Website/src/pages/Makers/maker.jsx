@@ -1,6 +1,6 @@
 import React from "react";
 import './maker.css';
-import Sagar from '../../assets/Sagar.jpeg'
+import Sagar2 from '../../assets/Sagar2.jpeg'
 import joyeeta from '../../assets/joyeeta.jpeg'
 import anshu from '../../assets/anshu.jpeg'
 import jatin from '../../assets/jatin.jpg'
@@ -10,7 +10,7 @@ const Maker=()=>{
         <div className="container">
             <div className="card">
                 <div className="imgbox">
-                   <img src={Sagar} alt="s"></img>
+                   <img src={Sagar2} alt="s"></img>
                    <br></br>
                    <h1 className="gradient__text">Sagar Garg</h1>
                 </div>
@@ -63,8 +63,8 @@ Delhi. He is enthusiastic and motivated learner proficient in MERN Stacks. Dedic
 his bachelor’s degree in ECE
 from BVCOE, GGSIPU, New
 Delhi. He is a highly motivated and
-confident Undergraduate with a
-strong passion for problem solving. He has hands-on experience on IOT with various microcontroller boards.
+confident undergraduate with a
+strong passion for problem solving. He has hands-on experience on IOT devices and proficient in data structures and algorithms.
 </p>
                 </div>
             </div>

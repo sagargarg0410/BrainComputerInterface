@@ -1,5 +1,5 @@
 import Cortex from './Facial_Data_Fetch'
-
+import './Face.css';
 import React, { useState, useEffect } from 'react';
 import smile from '../../assets/smile.jpg'
 import wink from '../../assets/wink.jpg'
@@ -10,7 +10,6 @@ import neutral from '../../assets/neutral.jpg'
 
   // Determine which image to display based on the fetched emotion string
   const getImageSource = () => {
-
     const socketUrl = 'wss://localhost:6868'
     let user =
     {
@@ -41,9 +40,12 @@ import neutral from '../../assets/neutral.jpg'
     }
   };
 
-  return (
-    <div>
-      <img src={getImageSource()} alt="Emotion Image"  />
+  return (<div  className="image-container">
+    <h1 className="gradient__text">Facial Expressions</h1>
+    <div className="image-wrapper" >
+      <img src={getImageSource()} alt="Emotion Image" className="emotion-image" />
+    </div>
+    <h2 className="text">Smile</h2>
     </div>
   );
 };

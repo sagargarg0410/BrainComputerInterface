@@ -40,9 +40,9 @@
     border-radius: 4px;
     transition: transform .3s;
 }
-.imgbox img:hover{
+/* .imgbox img:hover{
      transform: scale(1.2);
-}
+} */
 .container .card .content{
     position: relative;
     margin-top: -140px;
@@ -61,7 +61,7 @@
     transition-delay: 0.3s;
 }
 .content p{
-    color: rgb(163, 216, 230);
+    color: rgb(145, 225, 243);
     text-align: justify;
     margin-top: 17px;
     position: relative;
