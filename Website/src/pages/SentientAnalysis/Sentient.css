@@ -1,3 +1,7 @@
+*
+{
+    font-family: var(--font-family);
+}
 body{
   background: var(--color-bg);
 }
@@ -14,6 +18,8 @@ body{
     font-size: larger;
     font-weight: 500;
     text-align: justify;
+    font-family: "Manrope", sans-serif;
+    margin-left: 20px;
   }
   
   .bar {
@@ -29,7 +35,7 @@ body{
   h1{
     color: beige;
     text-decoration: wavy;
-    font-family: "Madimi One", sans-serif;
+    font-family: "Manrope", sans-serif;
     text-align: center;
   }
   h3{
@@ -44,10 +50,6 @@ body{
     
   }
   /* Background styling with glass morphism effect */
-  body {
-    background: radial-gradient(circle,black, black); /* Background gradient */
-    overflow: hidden; /* Prevents scrolling outside viewport */
-    
-  }
+  
   
   
