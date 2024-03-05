@@ -23,7 +23,7 @@ class App extends React.Component {
         <h1> Sentiment Analysis: Understanding Emotions </h1> <br />
         {/* <h3>Exploring the depth of human emotions through sentiment analysis offers valuable insights into Prosthetics behavior and social responses. Dive deep into the subtleties of feeling.</h3> */}
          <div>
-        <HorizontalBar label="Happy" value={70} maxValue={100} color="Fuchsia" emoji="😊" />
+        <HorizontalBar label="Happy" value={30} maxValue={100} color="Fuchsia" emoji="😊" />
         <HorizontalBar label="Excitement" value={50} maxValue={100} color="Chartreuse" emoji="😃" />
         <HorizontalBar label="Sad" value={20} maxValue={100} color="Crimson" emoji="😢" />
         <HorizontalBar label="Stress" value={80} maxValue={100} color="Cyan" emoji="😫" />
