@@ -1,10 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Face.css';
 import smile from '../../assets/smile.jpg'
 import wink from '../../assets/wink.jpg'
 import neutral from '../../assets/neutral.jpg'
-
-const ImageComponent = () => {
 
 let eyeAct, uAct, uPow, lAct, lPow
 var text =  " "
@@ -21,6 +19,45 @@ let user =
 const WARNING_CODE_HEADSET_DISCOVERY_COMPLETE = 142;
 const WARNING_CODE_HEADSET_CONNECTED = 104;
 
+  // Determine which image to display based on the fetched emotion string
+  
+  const getImageSource = () => {
+
+    if(eyeAct === "blink")
+    {
+        console.log("EYES BLINKED")
+        text = "Blink"
+        return wink;
+    }
+
+    else if(lAct === "Smile")
+    {
+        console.log("SMILED")
+        text = "Smile"
+        return smile;
+    }
+
+    else 
+    {
+        text = "Neutral" 
+        return neutral;
+    }
+
+  };
+
+  const ImageComponent = () => {
+
+    return (<div  className="image-container">
+      <h1 className="gradient__text">Facial Expressions</h1>
+      <div className="image-wrapper" >
+        <img src={getImageSource()} alt="Emotion Image" className="emotion-image" />
+      </div>
+      <h2 className="text">{text}</h2>
+      </div>
+    );
+
+  };
+
 class Cortex {
     constructor (user, socketUrl) {
         // create socket
@@ -33,7 +70,7 @@ class Cortex {
 
     }
     
-    queryHeadsetId() { console.log("queryHeadsetId")//Done
+    queryHeadsetId() { console.log("queryHeadsetId")
         return new Promise((resolve, reject) => {
             const QUERY_HEADSET_ID = 2;
             let socket = this.socket;
@@ -77,7 +114,7 @@ class Cortex {
         });
     }
 
-    requestAccess(){console.log("RequestAccess")//Done
+    requestAccess(){console.log("RequestAccess")
         let socket = this.socket
         let user = this.user
         return new Promise(function(resolve, reject){
@@ -235,19 +272,15 @@ class Cortex {
                         
                     console.log("\r\n")
                 */
-             
+
+                ImageComponent()
+                
+                
             } catch (error) {}
         })
     }
 
- 
-    /**
-     * - query headset infor
-     * - connect to headset with control device request
-     * - authentication and get back auth token
-     * - create session and get back session id
-     */
-    async querySessionInfo(){console.log("querySessionInfo")//Done
+    async querySessionInfo(){console.log("querySessionInfo")
         let qhResult = ""
         let headsetId = ""
         await this.queryHeadsetId().then((result)=>{qhResult = result})
@@ -280,11 +313,6 @@ class Cortex {
         console.log('\r\n')
     }
 
-    /**
-     * - check if user logined
-     * - check if app is granted for access
-     * - query session info to prepare for sub and train
-     */
     async checkGrantAccessAndQuerySessionInfo(){console.log("CGAQSI")
         let requestAccessResult = ""
         await this.requestAccess().then((result)=>{requestAccessResult=result})
@@ -310,13 +338,6 @@ class Cortex {
         }   
     }
 
-
-    /**
-     * 
-     * - check login and grant access
-     * - subcribe for stream
-     * - logout data stream to console or file
-     */
     sub(streams){console.log("sub")
         this.socket.addEventListener('open',async ()=>{
             await this.checkGrantAccessAndQuerySessionInfo()
@@ -375,71 +396,10 @@ class Cortex {
             } catch (error) {}
         });
     }
-/*
-    geteyeAction() {
-        //console.log("Eyes : ");
-        return eyeAct;
-    }
-
-    getuAct() {
-       // console.log("UpperFace : ");
-        return uAct;
-    }
-
-    getlAct() {
-        //console.log("LowerFace : ");
-        return lAct;
-    }*/
 }
 
-  let c = new Cortex(user, socketUrl)
-  let streams = ['fac']
-
-  c.sub(streams)
-
-  // Determine which image to display based on the fetched emotion string
-  const getImageSource = () => {
-    
-    //const eyes =  c.geteyeAction();
-    //const UFace = c.getuAct();
-    //const LFace = c.getlAct();
-
-    if(eyeAct === "blink")
-    {
-        console.log("EYES BLINKED")
-        text = "Blink"
-        return wink;
-    }
-    else if(lAct === "Smile")
-    {
-        console.log("SMILED")
-        text = "Smile"
-        return smile;
-    }
-
-    else 
-    {
-        text = "Neutral" 
-        return neutral;
-    }
-/*
-      switch ('blink') {
-        case 'blink':
-          // Replace with the actual path to your neutral image
-        default:
-          return neutral; // Replace with the actual path to a default image or handle other cases
-      }
-*/
-  };
-  
-  return (<div  className="image-container">
-    <h1 className="gradient__text">Facial Expressions</h1>
-    <div className="image-wrapper" >
-      <img src={getImageSource()} alt="Emotion Image" className="emotion-image" />
-    </div>
-    <h2 className="text">{text}</h2>
-    </div>
-  );
-};
+let c = new Cortex(user, socketUrl)
+let streams = ['fac']
+c.sub(streams)
 
 export default ImageComponent;
