@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Sentient.css';
 
-let exc = 0.1, // Excitement
-    str = 0.1, // Stress
-    foc = 0.1, // Focus
-    eng = 0.1, // Engagement
-    rel = 0.1    // Relaxed
+
 
 const socketUrl = 'wss://localhost:6868'
 let user =
@@ -25,6 +21,7 @@ class HorizontalBar extends React.Component {
         const barWidth = (value / maxValue) * 100 + "%";
         const percentage = (value / maxValue) * 100 + "%";
 
+        console.log(this.props)
         return (
             <div className="horizontal-bar">
                 <span className="label">{label}</span>
@@ -38,13 +35,19 @@ class HorizontalBar extends React.Component {
 }
 
 class Cortex {
-    constructor(user, socketUrl) {
+    constructor(user, socketUrl, setEng, setRel, setexc, setStr, setFoc) {
         // create socket
         process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
         this.socket = new WebSocket(socketUrl)
 
         // read user infor
         this.user = user
+        this.setEng = setEng
+        this.setexc = setexc
+        this.setRel = setRel
+        this.setStr = setStr
+        this.setFoc = setFoc
+
         this.isHeadsetConnected = false
 
     }
@@ -245,20 +248,30 @@ class Cortex {
             try {
                 //console.log("Data is Streaming Successfully")
 
-                if (JSON.parse(event.data)['met'][0])
-                    eng = JSON.parse(event.data)['met'][1]
+                //if (JSON.parse(event.data)['met'][0])
+                this.setEng(JSON.parse(event.data)['met'][3])
+                console.log("Engagement : ")
+                console.log(JSON.parse(event.data)['met'][3])
 
-                if (JSON.parse(event.data)['met'][2])
-                    exc = JSON.parse(event.data)['met'][3]
+                //if (JSON.parse(event.data)['met'][2])
+                this.setexc(JSON.parse(event.data)['met'][5])
+                console.log("Excitement : ")
+                console.log(JSON.parse(event.data)['met'][5])
 
-                if (JSON.parse(event.data)['met'][5])
-                    str = JSON.parse(event.data)['met'][6]
+                //if (JSON.parse(event.data)['met'][5])
+                this.setStr(JSON.parse(event.data)['met'][8])
+                console.log("Stress : ")
+                console.log(JSON.parse(event.data)['met'][8])
 
-                if (JSON.parse(event.data)['met'][7])
-                    rel = JSON.parse(event.data)['met'][8]
+                //if (JSON.parse(event.data)['met'][7])
+                this.setRel(JSON.parse(event.data)['met'][10])
+                console.log("Relaxation : ")
+                console.log(JSON.parse(event.data)['met'][10])
 
-                if (JSON.parse(event.data)['met'][11])
-                    foc = JSON.parse(event.data)['met'][12]
+                //if (JSON.parse(event.data)['met'][11])
+                this.setFoc(JSON.parse(event.data)['met'][12])
+                console.log("Focus/Interest : ")
+                console.log(JSON.parse(event.data)['met'][12])
 
             } catch (error) { }
         })
@@ -387,31 +400,38 @@ class Cortex {
     }
 }
 
+const SentientData = () => {
+    const [exc, setexc] = useState(0.5), // Excitement
+        [str, setStr] = useState(0.5), // Stress
+        [foc, setFoc] = useState(0.5), // Focus
+        [eng, setEng] = useState(0.5), // Engagement
+        [rel, setRel] = useState(0.5),  // Relaxed
+        cortex = useRef(),
+        streams = useRef(['met'])
 
-let c = new Cortex(user, socketUrl)
-let streams = ['met']
-c.sub(streams)
+    useEffect(() => {
+        cortex.current = new Cortex(user, socketUrl, setEng, setRel, setexc, setStr, setFoc)
 
-class App extends React.Component {
+        cortex.current.sub(streams.current)
+    }, [])
 
-    render() {
 
-        return (
-            <div className="App">
-                <h1> Sentiment Analysis: Understanding Emotions </h1> <br />
-                {/* <h3>Exploring the depth of human emotions through sentiment analysis offers valuable insights into Prosthetics behavior and social responses. Dive deep into the subtleties of feeling.</h3> */}
-                <div>
-                    <HorizontalBar label="Focus" value={foc * 100} maxValue={100} color="OrangeRed" emoji="🧐" />
-                    <HorizontalBar label="Engagement" value={eng * 100} maxValue={100} color="Fuchsia" emoji="😃" />
-                    <HorizontalBar label="Relaxed" value={rel * 100} maxValue={100} color="#ffff66" emoji="😎" />
-                    <HorizontalBar label="Excitement" value={exc * 100} maxValue={100} color="#66ff33" emoji="🤩" />
-                    <HorizontalBar label="Stress" value={str * 100} maxValue={100} color="Crimson" emoji="🥵" />
-
-                </div>
+    return (
+        <div className="App">
+            <h1> Sentient Analysis: Understanding Emotions </h1> <br />
+            { /*<h3>Exploring the depth of human emotions through sentiment analysis offers valuable insights into Prosthetics behavior and social responses. Dive deep into the subtleties of feeling.</h3> */}
+            <div>
+                <HorizontalBar label="Focus" value={Math.round(foc * 100)} maxValue={100} color="OrangeRed" emoji="🧐" />
+                <HorizontalBar label="Engagement" value={Math.round(eng * 100)} maxValue={100} color="Fuchsia" emoji="😃" />
+                <HorizontalBar label="Relaxed" value={Math.round(rel * 100)} maxValue={100} color="#ffff66" emoji="😎" />
+                <HorizontalBar label="Excitement" value={Math.round(exc * 100)} maxValue={100} color="#66ff33" emoji="🤩" />
+                <HorizontalBar label="Stress" value={Math.round(str * 100)} maxValue={100} color="Crimson" emoji="🥵" />
             </div>
-        );
-    }
+        </div>
+    );
+
 }
 
 
-export default App;
+
+export default SentientData;

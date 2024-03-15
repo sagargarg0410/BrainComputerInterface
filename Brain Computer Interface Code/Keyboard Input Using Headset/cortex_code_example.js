@@ -263,8 +263,6 @@ class Cortex {
         })
     }
 
-
-
     stopRecord(authToken, sessionId, recordName){
         let socket = this.socket
         const STOP_RECORD_REQUEST_ID = 12
@@ -346,10 +344,10 @@ class Cortex {
         socket.on('message', (data)=>{
             try {
                 //if(JSON.parse(data)['id']==SUB_REQUEST_ID){
-                    console.log('SUB REQUEST RESULT --------------------------------')
+                    console.log('Data is Streaming Successfully-------------------------')
                     console.log(JSON.parse(data))
                     //console.log("\r\n")
-                    
+                    /*
                     let eyeAct = JSON.parse(data)['fac'][0]
                     let uAct = JSON.parse(data)['fac'][1]
                     let uPow = JSON.parse(data)['fac'][2]
@@ -359,7 +357,7 @@ class Cortex {
                     let com = JSON.parse(data)['com'][0]
                     let pow = JSON.parse(data)['com'][1]
 
-                    console.log (JSON.parse(data)['com'][0])
+                    /*console.log (JSON.parse(data)['com'][0])
 
                     if (com == 'neutral')
                     {
@@ -383,7 +381,7 @@ class Cortex {
                         //sleep(100)
                     }
                     console.log("\r\n")
-
+                    */
                     
                  //}
             } catch (error) {}
@@ -796,7 +794,8 @@ let user = {
     // ---------- sub data stream
     // have six kind of stream data ['fac', 'pow', 'eeg', 'mot', 'met', 'com']
     // user could sub one or many stream at once
-    let streams = ['com']
+    let streams = ['sys']
     c.sub(streams)
+    //c.train(streams)
     
 // ---------------------------------------------------------------------------------------------------------------------------
