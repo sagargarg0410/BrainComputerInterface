@@ -401,11 +401,11 @@ class Cortex {
 }
 
 const SentientData = () => {
-    const [exc, setexc] = useState(0.5), // Excitement
-        [str, setStr] = useState(0.5), // Stress
-        [foc, setFoc] = useState(0.5), // Focus
-        [eng, setEng] = useState(0.5), // Engagement
-        [rel, setRel] = useState(0.5),  // Relaxed
+    const [exc, setexc] = useState(0), // Excitement
+        [str, setStr] = useState(0), // Stress
+        [foc, setFoc] = useState(0), // Focus
+        [eng, setEng] = useState(0), // Engagement
+        [rel, setRel] = useState(0),  // Relaxed
         cortex = useRef(),
         streams = useRef(['met'])
 
