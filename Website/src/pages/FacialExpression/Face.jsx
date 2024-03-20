@@ -393,7 +393,7 @@ const ImageComponent = () => {
             return wink;
         }
 
-        else if (lAct === "surprise") {
+        else if (lAct === "smile") {
             console.log("SMILED")
             text = "Smile"
             return smile;
