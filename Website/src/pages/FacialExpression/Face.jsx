@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './Face.css';
-import smile from '../../assets/smile.jpg'
-import wink from '../../assets/wink.jpg'
-import neutral from '../../assets/neutral.jpg'
+import smile from '../../assets/smile.png'
+import wink from '../../assets/blink.png'
+import neutral from '../../assets/neutral.png'
 
 let eyeAct, uAct, uPow, lAct, lPow
 var text = " "
