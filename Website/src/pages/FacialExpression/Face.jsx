@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import './Face.css';
 import smile from '../../assets/smile.png'
 import wink from '../../assets/blink.png'
+import blinksmile from '../../assets/blinkandsmile.png'
 import neutral from '../../assets/neutral.png'
 
 let eyeAct, uAct, uPow, lAct, lPow
@@ -387,16 +388,22 @@ const ImageComponent = () => {
             cortex.current.sub(streams.current)
         }, [])
 
-        if (eyeAct === "blink") {
+        if (eyeAct === "blink" && lAct !== "smile") {
             console.log("EYES BLINKED")
             text = "Blink"
             return wink;
         }
 
-        else if (lAct === "smile") {
+        else if (lAct === "smile" && eyeAct !== "blink") {
             console.log("SMILED")
             text = "Smile"
             return smile;
+        }
+
+        else if (lAct === "smile" && eyeAct === "blink") {
+            console.log("Blink & SMILED")
+            text = "Blinked and Smile"
+            return blinksmile;
         }
 
         else {
