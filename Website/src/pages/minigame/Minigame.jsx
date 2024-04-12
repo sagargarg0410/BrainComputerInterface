@@ -8,10 +8,12 @@ const MiniGames =()=>{
     return(<div className="pingContainer">
         <div className="pingimg">
             <h1 className="gradient__text">Ping Pong Game</h1>
+            <br></br>
         <img   src= {pingpongimage} alt="no img"/>
         </div>
         <div className="pingimg">
             <h1 className="gradient__text">Fruit Rally</h1>
+            <br></br>
         <img   src= {FruitRally} alt="no img"/>
         </div>      
         </div>
